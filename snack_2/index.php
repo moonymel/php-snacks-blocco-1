@@ -1,5 +1,19 @@
 <?php
 
+// VERIFICO SE ESISTONO I PARAMETRI
+if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])){
+    $name = $_GET['name'];
+    $email = $_GET['email'];
+    $age = (int)$_GET['age'];
+
+    // SETTO LE CONDIZIONI PER ACCESSO RIUSCITO O NEGATO
+    if(strlen($name)>=3 && str_contains($email, '@') && str_contains($email, '.') && is_int($age)) {
+        echo 'Accesso riuscito!';
+    }
+    else {
+        echo 'Accesso negato!';
+    }
+};
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +27,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <form action="dashboard.php" method="GET">
+            <form action="./index.php" method="GET">
                 <div class="col-6 my-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome</label>
@@ -29,6 +43,11 @@
                     </div>
                     <button type="submit" class="btn btn-success">Invia</button>
                 </div>
+                <!-- <div class="col-6 my-4">
+                    <?php if(strlen($name)>=3) { ?>
+                        <h3>Accesso riuscito</h3>
+                    <?php } ?>
+                </div> -->
             </form>
         </div>
     </div>
