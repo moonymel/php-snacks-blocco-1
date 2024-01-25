@@ -24,7 +24,7 @@ $posts = [
         [
             'title' => 'Alright',
             'author' => 'Superglass',
-            'text' => 'We are strange in our worlds but e are young, we get by',
+            'text' => 'We are strange in our worlds but we are young, we get by',
         ],
         [
             'title' => 'fineshrine',
@@ -46,13 +46,13 @@ $posts = [
 <body>
  
  <?php 
-   foreach($posts as $index => $post) {
+   foreach($posts as $index => $date) {
     echo '<h3>'.$index.'</h3>';
 
-    foreach($post as $key => $elem) { 
-       foreach($elem as $defpost) {
-        echo '<li>'.$defpost.'</li>';
-       }
+    foreach($date as $post) { 
+       echo '<h4>'.$post['title'].'</h4>';
+       echo $post['author'].'<br>';
+       echo $post['text'];
     }
    }
  ?>

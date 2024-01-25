@@ -4,10 +4,10 @@
 if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])){
     $name = $_GET['name'];
     $email = $_GET['email'];
-    $age = (int)$_GET['age'];
+    $age = $_GET['age'];
 
     // SETTO LE CONDIZIONI PER ACCESSO RIUSCITO O NEGATO
-    if(strlen($name)>=3 && str_contains($email, '@') && str_contains($email, '.') && is_int($age)) {
+    if(strlen($name)>=3 && str_contains($email, '@') && str_contains($email, '.') && is_numeric($age)) {
         echo 'Accesso riuscito!';
     }
     else {
